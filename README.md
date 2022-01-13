@@ -1,6 +1,6 @@
-# hwk10again
+# anAbundanceOfCats
 
-A new Flutter project.
+An IOS/Android app using an API from https://thecatsAPI.com showing a gallery of cats
 
 ## Getting Started
 
