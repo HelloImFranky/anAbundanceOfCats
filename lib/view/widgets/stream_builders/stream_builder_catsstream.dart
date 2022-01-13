@@ -1,8 +1,8 @@
+import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/loading.dart';
+import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/show_cat.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:hwk10again/blocs/cats_bloc.dart';
-import 'package:hwk10again/view/widgets/stream_builders/stream_widgets/loading.dart';
-import 'package:hwk10again/view/widgets/stream_builders/stream_widgets/show_cat.dart';
 
+import '../../../blocs/cats_bloc.dart';
 import '../../../networking/api_response_status.dart';
 
 

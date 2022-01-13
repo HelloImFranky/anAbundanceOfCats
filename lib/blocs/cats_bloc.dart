@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:hwk10again/blocs/abstract_bloc.dart';
 
 import '../networking/api_response_status.dart';
 import '../models/cats_model.dart';
 import '../repository/cat_repository.dart';
+import 'abstract_bloc.dart';
 
 class CatsBloc implements Bloc{
   late CatRepository _catRepository;

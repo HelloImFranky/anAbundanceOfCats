@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hwk10again/blocs/cats_bloc.dart';
-import 'package:hwk10again/view/widgets/stream_builders/stream_builder_catsstream.dart';
+import '../../../../blocs/cats_bloc.dart';
 import '../../button_widgets/button_search_for_breed_Images.dart';
+import '../stream_builder_catsstream.dart';
 
 class ShowBreedList extends StatelessWidget {
   const ShowBreedList({Key? key, required this.breed, required this.catImage})

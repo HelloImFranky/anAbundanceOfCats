@@ -1,9 +1,9 @@
+import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/loading.dart';
+import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/show_breed_results.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hwk10again/blocs/breeds_search_result_bloc.dart';
-import 'package:hwk10again/view/widgets/stream_builders/stream_widgets/loading.dart';
-import 'package:hwk10again/view/widgets/stream_builders/stream_widgets/show_breed_results.dart';
 
+import '../../../blocs/breeds_search_result_bloc.dart';
 import '../../../networking/api_response_status.dart';
 
 class BreedChoiceImageStream extends StatelessWidget {

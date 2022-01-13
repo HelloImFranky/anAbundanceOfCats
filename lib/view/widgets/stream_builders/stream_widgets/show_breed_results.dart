@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:hwk10again/models/breeds_search_results_model.dart';
+import '../../../../models/breeds_search_results_model.dart';
+
 
 class ShowBreedResults extends StatelessWidget {
   const ShowBreedResults({Key? key, required this.breed}) : super(key: key);
