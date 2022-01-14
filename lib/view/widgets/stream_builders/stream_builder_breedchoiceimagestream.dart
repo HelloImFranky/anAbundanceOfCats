@@ -1,4 +1,4 @@
-import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/loading.dart';
+import 'package:anAbundanceOfCats/view/widgets/loading_widget.dart';
 import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/show_breed_results.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

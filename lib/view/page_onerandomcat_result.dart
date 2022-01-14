@@ -50,7 +50,7 @@ class _ResultPageState extends State<ResultPage> {
   }
 }
 
-
+//
 // class Error extends StatelessWidget {
 //   final String errorMessage;
 //   final Function onRetryPressed;
@@ -76,7 +76,7 @@ class _ResultPageState extends State<ResultPage> {
 //             child: const Text(
 //               'Retry',
 //             ),
-//             onPressed: onRetryPressed,
+//             onPressed: onRetryPressed =>
 //           )
 //         ],
 //       ),
