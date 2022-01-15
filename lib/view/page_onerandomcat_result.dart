@@ -4,49 +4,30 @@ import 'package:flutter/material.dart';
 import '../blocs/cats_bloc.dart';
 import 'widgets/button_widgets/button_more_cats.dart';
 
-class ResultPage extends StatefulWidget {
+class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
-
-  @override
-  _ResultPageState createState() => _ResultPageState();
-}
-
-class _ResultPageState extends State<ResultPage> {
-  late CatsBloc _bloc;
-
-  @override
-  void initState() {
-    super.initState();
-    _bloc = CatsBloc();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Results Page')),
-      body: RefreshIndicator(
-        onRefresh: () => _bloc.fetchCat(),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                child: CatStream(bloc:_bloc,),
-              ),
-              const SizedBox(height: 50,),
-              MoreCatsElevatedButton(bloc: _bloc,),
-              const SizedBox(height: 50,)
-            ],
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            Expanded(
+              child: CatStream(),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            SizedBox(
+              height: 50,
+            )
+          ],
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _bloc.dispose();
-    super.dispose();
   }
 }
 
@@ -83,4 +64,3 @@ class _ResultPageState extends State<ResultPage> {
 //     );
 //   }
 // }
-

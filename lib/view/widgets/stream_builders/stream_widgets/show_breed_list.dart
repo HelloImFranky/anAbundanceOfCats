@@ -27,13 +27,13 @@ class ShowBreedList extends StatelessWidget {
           centerTitle: true,
           title: const Text('All Breeds'),
           expandedHeight: 300.0,
-          flexibleSpace: FlexibleSpaceBar(
-            stretchModes: const <StretchMode>[
+          flexibleSpace: const FlexibleSpaceBar(
+            stretchModes: <StretchMode>[
               StretchMode.zoomBackground,
               StretchMode.blurBackground,
               StretchMode.fadeTitle,
             ],
-            background: CatStream(bloc: catImage),
+            background: CatStream(),
           ),
         ),
         SliverGrid(

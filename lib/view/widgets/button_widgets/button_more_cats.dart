@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../blocs/cats_bloc.dart';
 
 class MoreCatsElevatedButton extends StatelessWidget {
-  const MoreCatsElevatedButton({Key? key, required this.bloc}) : super(key: key);
-  final CatsBloc bloc;
+  const MoreCatsElevatedButton({Key? key,required this.catBloc}) : super(key: key);
+  final CatsBloc catBloc;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -14,7 +14,7 @@ class MoreCatsElevatedButton extends StatelessWidget {
           onPrimary: Colors.white,
           onSurface: Colors.grey,
         ),
-        onPressed: ()=>bloc.fetchCat(),
+        onPressed: ()=>catBloc.fetchCat(),
         child: const Text('Show me more cats!'));
   }
 }

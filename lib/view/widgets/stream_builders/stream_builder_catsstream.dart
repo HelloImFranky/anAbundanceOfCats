@@ -4,29 +4,48 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../blocs/cats_bloc.dart';
 import '../../../networking/api_response_status.dart';
+import '../button_widgets/button_more_cats.dart';
 
+class CatStream extends StatefulWidget {
+  const CatStream({Key? key}) : super(key: key);
 
-class CatStream extends StatelessWidget {
-  const CatStream({Key? key, required this.bloc}) : super(key: key);
-  final CatsBloc bloc;
+  @override
+  _CatStreamState createState() => _CatStreamState();
+}
+
+class _CatStreamState extends State<CatStream> {
+  late CatsBloc bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    bloc = CatsBloc();
+  }
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<dynamic>(
-      stream: bloc.catsListStream,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          switch (snapshot.data.status) {
-            case Status.loading:
-              return Loading(loadingMessage: snapshot.data.message);
-            case Status.completed:
-              return ShowCat(cat: snapshot.data.data);
-            case Status.error:
-              print(snapshot.data.message);
-              return Text(snapshot.data.message);
-          }
-        }
-        return Container();
-      },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const SizedBox(height: 50),
+        StreamBuilder<dynamic>(
+          stream: bloc.catsListStream,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              switch (snapshot.data.status) {
+                case Status.loading:
+                  return Loading(loadingMessage: snapshot.data.message);
+                case Status.completed:
+                  return ShowCat(cat: snapshot.data.data);
+                case Status.error:
+                  print(snapshot.data.message);
+                  return Text(snapshot.data.message);
+              }
+            }
+            return Container();
+          },
+        ),
+        MoreCatsElevatedButton(catBloc: bloc),
+      ],
     );
   }
 }
