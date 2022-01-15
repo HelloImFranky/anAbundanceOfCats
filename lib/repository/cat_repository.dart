@@ -18,13 +18,10 @@ class CatRepository {
 
   Future<List<Breeds>> fetchBreeds() async {
     final response = await _catProvider.fetchBreeds();
-
     List<Breeds> listOfBreeds = <Breeds>[];
-
     for(var breed in response){
       listOfBreeds.add(Breeds.fromJson(breed));
     }
-
     return listOfBreeds;
   }
 
