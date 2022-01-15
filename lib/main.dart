@@ -1,8 +1,9 @@
-import 'package:anAbundanceOfCats/view/welcome_view.dart';
 import 'package:flutter/material.dart';
-import 'view/page_allbreeds_choice_page.dart';
-import 'view/page_breed_choice_image_results_.dart';
-import 'view/page_onerandomcat_result.dart';
+
+import 'presentation/view/welcome_view.dart';
+import 'presentation/view/page_allbreeds_choice_page.dart';
+import 'presentation/view/page_breed_choice_image_results_.dart';
+import 'presentation/view/page_onerandomcat_result.dart';
 
 void main() {
   runApp(const MyApp());

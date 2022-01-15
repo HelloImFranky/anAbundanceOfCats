@@ -1,6 +1,7 @@
-import 'package:anAbundanceOfCats/view/widgets/button_widgets/button_random_cat_frontpage.dart';
-import 'package:anAbundanceOfCats/view/widgets/button_widgets/button_search_frontpage.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/button_widgets/button_random_cat_frontpage.dart';
+import '../widgets/button_widgets/button_search_frontpage.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);

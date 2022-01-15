@@ -1,10 +1,10 @@
-import 'package:anAbundanceOfCats/view/widgets/loading_widget.dart';
-import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/show_cat.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-import '../../../blocs/cats_bloc.dart';
+import '../../../business_logic/blocs/cats_bloc.dart';
 import '../../../networking/api_response_status.dart';
 import '../button_widgets/button_more_cats.dart';
+import '../loading_widget.dart';
+import 'stream_widgets/show_cat.dart';
 
 class CatStream extends StatefulWidget {
   const CatStream({Key? key}) : super(key: key);

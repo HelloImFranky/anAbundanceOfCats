@@ -1,14 +1,14 @@
-import 'package:anAbundanceOfCats/view/widgets/loading_widget.dart';
-import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/show_breed_results.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../blocs/breeds_search_result_bloc.dart';
+import '../../../business_logic/blocs/breeds_search_result_bloc.dart';
 import '../../../networking/api_response_status.dart';
+import '../loading_widget.dart';
+import 'stream_widgets/show_breed_results.dart';
 
 class BreedChoiceImageStream extends StatelessWidget {
-   const BreedChoiceImageStream({Key? key,required this.searchBloc}) : super(key: key);
-   final BreedsSearchBloc searchBloc;
+  const BreedChoiceImageStream({Key? key, required this.searchBloc})
+      : super(key: key);
+  final BreedsSearchBloc searchBloc;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<dynamic>(
@@ -28,5 +28,5 @@ class BreedChoiceImageStream extends StatelessWidget {
         return Container();
       },
     );
-    }
   }
+}

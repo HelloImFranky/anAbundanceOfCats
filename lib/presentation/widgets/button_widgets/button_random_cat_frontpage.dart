@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SearchFPElevatedButton extends StatelessWidget {
-  const SearchFPElevatedButton({Key? key}) : super(key: key);
+class RandomCatFPElevatedButton extends StatelessWidget {
+  const RandomCatFPElevatedButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +10,9 @@ class SearchFPElevatedButton extends StatelessWidget {
           fixedSize: const Size(200, 75),
           primary: Colors.grey[500],
         ),
-        child: const Text('Search By Breed'),
+        child: const Text('I\'m feeling lucky!'),
         onPressed: () {
-          Navigator.pushNamed(context, '/searchPage');
+          Navigator.pushNamed(context, '/resultPage');
         });
   }
 }

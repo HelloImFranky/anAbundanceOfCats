@@ -1,6 +1,10 @@
-import 'package:flutter/cupertino.dart';
 
-import '../../../../models/cats_model.dart';
+
+import 'package:flutter/material.dart';
+
+import '../../../../data/models/cats_model.dart';
+
+
 
 class ShowCat extends StatelessWidget {
   const ShowCat({Key? key, required this.cat}) : super(key: key);

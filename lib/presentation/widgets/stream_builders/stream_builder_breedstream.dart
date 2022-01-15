@@ -1,11 +1,10 @@
-import 'package:anAbundanceOfCats/view/widgets/loading_widget.dart';
-import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_widgets/show_breed_list.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../blocs/breeds_name_bloc.dart';
-import '../../../blocs/cats_bloc.dart';
+import '../../../business_logic/blocs/breeds_name_bloc.dart';
+import '../../../business_logic/blocs/cats_bloc.dart';
 import '../../../networking/api_response_status.dart';
+import '../loading_widget.dart';
+import 'stream_widgets/show_breed_list.dart';
 
 class BreedStream extends StatefulWidget {
    const BreedStream({Key? key}) : super(key: key);

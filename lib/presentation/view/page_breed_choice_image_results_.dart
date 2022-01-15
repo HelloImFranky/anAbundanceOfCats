@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../blocs/breeds_search_result_bloc.dart';
-import '../models/user_breed_choice_model.dart';
-import 'widgets/stream_builders/stream_builder_breedchoiceimagestream.dart';
+import '../../business_logic/blocs/breeds_search_result_bloc.dart';
+import '../../data/models/user_breed_choice_model.dart';
+import '../widgets/stream_builders/stream_builder_breedchoiceimagestream.dart';
 
 class BreedResultPage extends StatefulWidget {
   const BreedResultPage({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../blocs/cats_bloc.dart';
+import '../../../business_logic/blocs/cats_bloc.dart';
+
 
 class MoreCatsElevatedButton extends StatelessWidget {
   const MoreCatsElevatedButton({Key? key,required this.catBloc}) : super(key: key);

@@ -1,8 +1,7 @@
-import 'package:anAbundanceOfCats/providers/cat_provider.dart';
-
 import '../models/breeds_model.dart';
 import '../models/breeds_search_results_model.dart';
 import '../models/cats_model.dart';
+import '../providers/cat_provider.dart';
 
 class CatRepository {
 

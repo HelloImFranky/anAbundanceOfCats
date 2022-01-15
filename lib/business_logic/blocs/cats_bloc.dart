@@ -1,9 +1,8 @@
 import 'dart:async';
 
-
-import '../networking/api_response_status.dart';
-import '../models/cats_model.dart';
-import '../repository/cat_repository.dart';
+import '../../data/models/cats_model.dart';
+import '../../data/repository/cat_repository.dart';
+import '../../networking/api_response_status.dart';
 import 'abstract_bloc.dart';
 
 class CatsBloc implements Bloc{

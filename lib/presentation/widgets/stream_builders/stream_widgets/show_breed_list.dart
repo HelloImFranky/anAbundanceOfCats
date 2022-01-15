@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../../blocs/cats_bloc.dart';
+
+import '../../../../business_logic/blocs/cats_bloc.dart';
 import '../../button_widgets/button_search_for_breed_Images.dart';
 import '../stream_builder_catsstream.dart';
 

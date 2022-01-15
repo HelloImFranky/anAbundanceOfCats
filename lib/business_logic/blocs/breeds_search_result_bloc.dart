@@ -1,10 +1,11 @@
 import 'dart:async';
 
-import 'package:anAbundanceOfCats/blocs/abstract_bloc.dart';
+import '../../business_logic/blocs/abstract_bloc.dart';
+import '../../data/models/breeds_search_results_model.dart';
+import '../../data/repository/cat_repository.dart';
+import '../../networking/api_response_status.dart';
 
-import '../models/breeds_search_results_model.dart';
-import '../networking/api_response_status.dart';
-import '../repository/cat_repository.dart';
+
 
 class BreedsSearchBloc implements Bloc {
   late CatRepository _catRepository;

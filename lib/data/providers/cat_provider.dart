@@ -1,4 +1,4 @@
-import '../networking/api_helper.dart';
+import '../../networking/api_helper.dart';
 
 class CatProvider {
   final ApiBaseHelper _helper = ApiBaseHelper();

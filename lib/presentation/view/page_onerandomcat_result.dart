@@ -1,8 +1,6 @@
-import 'package:anAbundanceOfCats/view/widgets/stream_builders/stream_builder_catsstream.dart';
 import 'package:flutter/material.dart';
 
-import '../blocs/cats_bloc.dart';
-import 'widgets/button_widgets/button_more_cats.dart';
+import '../widgets/stream_builders/stream_builder_catsstream.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);

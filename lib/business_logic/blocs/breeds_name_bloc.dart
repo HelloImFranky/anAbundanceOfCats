@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import '../models/breeds_model.dart';
-import '../networking/api_response_status.dart';
-import '../repository/cat_repository.dart';
+import '../../data/models/breeds_model.dart';
+import '../../data/repository/cat_repository.dart';
+import '../../networking/api_response_status.dart';
 import 'abstract_bloc.dart';
 
 class BreedsNameBloc implements Bloc {

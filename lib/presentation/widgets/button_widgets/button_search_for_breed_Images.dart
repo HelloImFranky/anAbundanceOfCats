@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../models/user_breed_choice_model.dart';
+import '../../../data/models/user_breed_choice_model.dart';
+
 
 class SearchForBreedImagesElevatedButton extends StatelessWidget {
   const SearchForBreedImagesElevatedButton(
