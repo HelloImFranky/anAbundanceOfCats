@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import '../../business_logic/blocs/abstract_bloc.dart';
 import '../../data/models/breeds_search_results_model.dart';
 import '../../data/repository/cat_repository.dart';
 import '../../networking/api_response_status.dart';
 
 
 
-class BreedsSearchBloc implements Bloc {
+class BreedsSearchBloc {
   late CatRepository _catRepository;
   late StreamController _breedSearchResultController;
 

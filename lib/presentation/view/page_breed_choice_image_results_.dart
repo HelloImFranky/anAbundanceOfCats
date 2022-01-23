@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../business_logic/blocs/breeds_search_result_bloc.dart';
 import '../../data/models/user_breed_choice_model.dart';
-import '../widgets/stream_builders/stream_builder_breedchoiceimagestream.dart';
 
 class BreedResultPage extends StatefulWidget {
   const BreedResultPage({Key? key}) : super(key: key);
@@ -25,16 +24,15 @@ class _BreedResultPageState extends State<BreedResultPage> {
     setState(() {
       final arguments =
       ModalRoute.of(context)?.settings.arguments as UserBreedChoiceCode;
-      searchBloc.fetchSearchedBreed(arguments.breedCode);
-      catName = arguments.breedName;
+      searchBloc.fetchSearchedBreed(arguments.breedCode!);
+      catName = arguments.breedName!;
     });
     return Scaffold(
       appBar: AppBar(title: Text(catName),),
         body: Column(
       children: [
         Expanded(
-            child: BreedChoiceImageStream(
-                searchBloc: searchBloc)),
+            child: Container())
       ],
     ));
   }

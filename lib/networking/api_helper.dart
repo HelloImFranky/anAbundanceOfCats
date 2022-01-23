@@ -9,7 +9,7 @@ class ApiBaseHelper {
   final String _baseUrl = "https://api.thecatapi.com";
 
   Future<dynamic> get(String url) async {
-    print('Api GET url: $url');
+    print('Currently Getting: $url');
     var newURL = _baseUrl + url;
     var responseJson;
     try {

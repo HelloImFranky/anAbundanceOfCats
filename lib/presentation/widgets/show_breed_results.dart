@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../data/models/breeds_search_results_model.dart';
+import '../../data/models/breeds_search_results_model.dart';
 
 
 

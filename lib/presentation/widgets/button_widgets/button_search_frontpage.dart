@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SearchFPElevatedButton extends StatelessWidget {
-  const SearchFPElevatedButton({Key? key}) : super(key: key);
+class SearchByBreedElevatedButton extends StatelessWidget {
+  const SearchByBreedElevatedButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
