@@ -3,7 +3,6 @@ import 'package:anAbundanceOfCats/data/models/cats_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../widgets/button_widgets/button_more_cats.dart';
-import '../widgets/loading_widget.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -14,6 +13,7 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
   double catRescale = 1.5;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +63,8 @@ class _ResultPageState extends State<ResultPage> {
       return 6.0;
     } else if (loadedCats.height > 3000) {
       return 9.0;
+    } else if (loadedCats.height > 4000) {
+      return 11.0;
     }
   }
 }

@@ -8,7 +8,6 @@ import '../view/page_onerandomcat_result.dart';
 import '../view/welcome_view.dart';
 
 class AppRouter {
-
   final SingleCatDisplayBloc _catBloc = SingleCatDisplayBloc();
   final BreedNameListBloc _breedsNameListBloc = BreedNameListBloc();
 
@@ -25,19 +24,21 @@ class AppRouter {
             child: const ResultPage(),
           ),
         );
-      case '/breedNameSearchPage':
+      case '/breedNameSearchPage' :
         return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value:_breedsNameListBloc..add(const BreedNameListEvent.displayBreedNames(),),
-          child: const BreedNameSearchPage(),
-          ),
-        );
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (breedContext) => _breedsNameListBloc),
+                    BlocProvider(create: (catContext) => _catBloc),
+                  ],
+                  child: const BreedNameSearchPage(),
+                ));
       case '/breedResultPage':
-        return MaterialPageRoute(builder: (_) => const ResultPage(),);
+        return MaterialPageRoute(
+          builder: (_) => const ResultPage(),
+        );
       default:
         return null;
     }
   }
-
-
 }

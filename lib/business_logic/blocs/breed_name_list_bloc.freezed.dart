@@ -309,7 +309,7 @@ class _$BreedNameListStateTearOff {
     );
   }
 
-  _BreedNameListLoaded loaded({required List<Breeds> breeds}) {
+  _BreedNameListLoaded loaded({required Map<String, String> breeds}) {
     return _BreedNameListLoaded(
       breeds: breeds,
     );
@@ -330,21 +330,21 @@ mixin _$BreedNameListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Loading loadingWidget) loading,
-    required TResult Function(List<Breeds> breeds) loaded,
+    required TResult Function(Map<String, String> breeds) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -458,7 +458,7 @@ class _$_BreedNameListLoading implements _BreedNameListLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Loading loadingWidget) loading,
-    required TResult Function(List<Breeds> breeds) loaded,
+    required TResult Function(Map<String, String> breeds) loaded,
     required TResult Function(String message) error,
   }) {
     return loading(loadingWidget);
@@ -468,7 +468,7 @@ class _$_BreedNameListLoading implements _BreedNameListLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
   }) {
     return loading?.call(loadingWidget);
@@ -478,7 +478,7 @@ class _$_BreedNameListLoading implements _BreedNameListLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -538,7 +538,7 @@ abstract class _$BreedNameListLoadedCopyWith<$Res> {
   factory _$BreedNameListLoadedCopyWith(_BreedNameListLoaded value,
           $Res Function(_BreedNameListLoaded) then) =
       __$BreedNameListLoadedCopyWithImpl<$Res>;
-  $Res call({List<Breeds> breeds});
+  $Res call({Map<String, String> breeds});
 }
 
 /// @nodoc
@@ -560,7 +560,7 @@ class __$BreedNameListLoadedCopyWithImpl<$Res>
       breeds: breeds == freezed
           ? _value.breeds
           : breeds // ignore: cast_nullable_to_non_nullable
-              as List<Breeds>,
+              as Map<String, String>,
     ));
   }
 }
@@ -571,7 +571,7 @@ class _$_BreedNameListLoaded implements _BreedNameListLoaded {
   const _$_BreedNameListLoaded({required this.breeds});
 
   @override
-  final List<Breeds> breeds;
+  final Map<String, String> breeds;
 
   @override
   String toString() {
@@ -600,7 +600,7 @@ class _$_BreedNameListLoaded implements _BreedNameListLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Loading loadingWidget) loading,
-    required TResult Function(List<Breeds> breeds) loaded,
+    required TResult Function(Map<String, String> breeds) loaded,
     required TResult Function(String message) error,
   }) {
     return loaded(breeds);
@@ -610,7 +610,7 @@ class _$_BreedNameListLoaded implements _BreedNameListLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
   }) {
     return loaded?.call(breeds);
@@ -620,7 +620,7 @@ class _$_BreedNameListLoaded implements _BreedNameListLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -666,10 +666,10 @@ class _$_BreedNameListLoaded implements _BreedNameListLoaded {
 }
 
 abstract class _BreedNameListLoaded implements BreedNameListState {
-  const factory _BreedNameListLoaded({required List<Breeds> breeds}) =
+  const factory _BreedNameListLoaded({required Map<String, String> breeds}) =
       _$_BreedNameListLoaded;
 
-  List<Breeds> get breeds;
+  Map<String, String> get breeds;
   @JsonKey(ignore: true)
   _$BreedNameListLoadedCopyWith<_BreedNameListLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -741,7 +741,7 @@ class _$_BreedNameListError implements _BreedNameListError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Loading loadingWidget) loading,
-    required TResult Function(List<Breeds> breeds) loaded,
+    required TResult Function(Map<String, String> breeds) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -751,7 +751,7 @@ class _$_BreedNameListError implements _BreedNameListError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
   }) {
     return error?.call(message);
@@ -761,7 +761,7 @@ class _$_BreedNameListError implements _BreedNameListError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Loading loadingWidget)? loading,
-    TResult Function(List<Breeds> breeds)? loaded,
+    TResult Function(Map<String, String> breeds)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

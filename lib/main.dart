@@ -7,20 +7,23 @@ import 'presentation/view/page_breed_choice_image_results_.dart';
 import 'presentation/view/page_onerandomcat_result.dart';
 
 void main() {
-  runApp(MyApp(appRouter: AppRouter()));
+  runApp(const MyApp());
+}
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyApp extends StatelessWidget {
-
-  final AppRouter appRouter;
-
-  const MyApp({Key? key, required this.appRouter}) : super(key: key);
+class _MyAppState extends State<MyApp> {
+  final AppRouter _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      onGenerateRoute: appRouter.onGenerateRoute,
+      onGenerateRoute: _appRouter.onGenerateRoute,
       theme: ThemeData.dark(),
     );
   }
