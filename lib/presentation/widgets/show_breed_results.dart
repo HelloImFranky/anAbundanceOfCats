@@ -15,18 +15,18 @@ class ShowBreedResults extends StatelessWidget {
     return Scaffold(
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(breed[0].breeds[0].description.toString(),textAlign: TextAlign.center,style: const TextStyle(fontSize: 20.0),),
-            ),
-            ElevatedButton(onPressed: () async {
-              String url = breed[0].breeds[0].wikipediaUrl.toString();
-              if(await canLaunch(url)){
-                await launch(url);
-              }else{
-                throw 'Could not Launch $url';
-              }
-            },child: const Text('More information'),),
+            // Padding(
+            //   padding: const EdgeInsets.all(20.0),
+            //   child: Text(breed[0].breeds[0].description.toString(),textAlign: TextAlign.center,style: const TextStyle(fontSize: 20.0),),
+            // ),
+            // ElevatedButton(onPressed: () async {
+            //   String url = breed[0].breeds[0].wikipediaUrl.toString();
+            //   if(await canLaunch(url)){
+            //     await launch(url);
+            //   }else{
+            //     throw 'Could not Launch $url';
+            //   }
+            // },child: const Text('More information'),),
             Expanded(
               child: ListView.builder(
                   itemCount: breed.length,

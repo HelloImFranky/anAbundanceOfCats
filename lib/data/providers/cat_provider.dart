@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import '../../networking/api_helper.dart';
 
 class CatProvider {

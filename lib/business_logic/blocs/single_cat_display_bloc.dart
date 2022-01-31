@@ -22,8 +22,7 @@ class SingleCatDisplayBloc
     });
     on<DisplaySingleCat>((event, emit) async {
       try {
-        CatRepository catRepository = CatRepository();
-        final cat = await catRepository.fetchCat();
+        final cat = await CatRepository().fetchCat();
         emit(SingleCatDisplayState.loaded(cat: cat));
       } catch (e) {
         emit(SingleCatDisplayState.error(message: e.toString()));

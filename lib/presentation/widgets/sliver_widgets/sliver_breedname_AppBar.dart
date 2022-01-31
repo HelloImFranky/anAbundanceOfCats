@@ -1,3 +1,4 @@
+import 'package:anAbundanceOfCats/business_logic/blocs/breed_name_app_bar_background_bloc.dart';
 import 'package:anAbundanceOfCats/business_logic/blocs/single_cat_display_bloc.dart';
 import 'package:anAbundanceOfCats/presentation/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +16,19 @@ class _SliverGridBreedNameAppBar extends State<SliverGridBreedNameAppBar> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<BreedNameAppBarBackgroundBloc>(context)
+        .add(const BreedNameAppBarBackgroundEvent.displayCat());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    BlocProvider.of<BreedNameAppBarBackgroundBloc>(context).close();
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<SingleCatDisplayBloc>().state;
+    final state = context.watch<BreedNameAppBarBackgroundBloc>().state;
     return SliverAppBar(
       stretch: true,
       onStretchTrigger: () {

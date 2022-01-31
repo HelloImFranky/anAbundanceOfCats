@@ -15,6 +15,11 @@ class _ResultPageState extends State<ResultPage> {
   double catRescale = 1.5;
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
