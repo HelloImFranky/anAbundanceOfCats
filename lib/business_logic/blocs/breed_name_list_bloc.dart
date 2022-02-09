@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:anAbundanceOfCats/business_logic/blocs/breed_name_app_bar_background_bloc.dart';
 import 'package:anAbundanceOfCats/data/repository/cat_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

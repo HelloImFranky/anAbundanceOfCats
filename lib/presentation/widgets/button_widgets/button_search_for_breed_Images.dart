@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../data/models/user_breed_choice_model.dart';
 
-
 class SearchForBreedImagesElevatedButton extends StatelessWidget {
   const SearchForBreedImagesElevatedButton(
       {Key? key, required this.breed, required this.index})
@@ -16,10 +15,7 @@ class SearchForBreedImagesElevatedButton extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(primary: Colors.grey[500]),
         onPressed: () {
-          Navigator.pushNamed(context, '/breedResultPage',
-              arguments: UserBreedChoiceCode.codeConstruct(
-                  breed.values.elementAt(index),
-                  breed.keys.elementAt(index),));
+
         },
         child: Text(breed.keys.elementAt(index)));
   }

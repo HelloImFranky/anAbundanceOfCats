@@ -1,7 +1,10 @@
+import 'package:anAbundanceOfCats/business_logic/blocs/breed_results_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../business_logic/blocs/breed_name_list_bloc.dart';
+import '../../../data/repository/cat_repository.dart';
+import '../../view/page_show_breed_results.dart';
 
 class SliverGridBreedNameChoice extends StatefulWidget {
   const SliverGridBreedNameChoice({Key? key}) : super(key: key);
@@ -12,17 +15,12 @@ class SliverGridBreedNameChoice extends StatefulWidget {
 }
 
 class _SliverGridBreedNameChoiceState extends State<SliverGridBreedNameChoice> {
+
   @override
   void initState() {
     super.initState();
     BlocProvider.of<BreedNameListBloc>(context)
         .add(const BreedNameListEvent.displayBreedNames());
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    BlocProvider.of<BreedNameListBloc>(context).close();
   }
 
   @override
@@ -44,13 +42,22 @@ class _SliverGridBreedNameChoiceState extends State<SliverGridBreedNameChoice> {
                 ),
                 style: ElevatedButton.styleFrom(primary: Colors.grey[500]),
                 onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/breedResultPage',
+                  String breedId = loaded.values.elementAt(index);
+                  BreedResultsBloc resultBloc =
+                      BreedResultsBloc(CatRepository(), breedId);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => BlocProvider(
+                        create: (create) => resultBloc,
+                        child: const ShowBreedResults(),
+                      ),
+                    ),
                   );
                 }),
-            error: (error) => Text("failed: "+ error));
-      },childCount: BlocProvider.of<BreedNameListBloc>(context).breedListLength),
+            error: (error) => Text("failed: " + error));
+      },
+          childCount:
+              BlocProvider.of<BreedNameListBloc>(context).breedListLength),
     );
   }
 }

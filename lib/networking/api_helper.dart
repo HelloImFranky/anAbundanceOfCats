@@ -1,10 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-
-import 'app_exceptions.dart';
 
 class ApiBaseHelper {
   final String _baseUrl = "https://api.thecatapi.com";
@@ -19,7 +16,7 @@ class ApiBaseHelper {
       });
       responseJson = _returnResponse(response);
     } on SocketException {
-      throw FetchDataException('No Internet connection');
+      throw Exception('No Internet connection');
     }
     print('API GET Successful');
     return responseJson;
@@ -35,13 +32,13 @@ class ApiBaseHelper {
         print(responseJson);
         return responseJson;
       case 400:
-        throw BadRequestException(response.body.toString());
+        throw Exception(response.body.toString());
       case 401:
       case 403:
-        throw UnauthorisedException(response.body.toString());
+        throw Exception(response.body.toString());
       case 500:
       default:
-        throw FetchDataException(
+        throw Exception(
             'Error occurred while Communication with Server with StatusCode : ${response.statusCode}');
     }
   }

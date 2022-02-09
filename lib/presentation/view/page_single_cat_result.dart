@@ -1,5 +1,6 @@
 import 'package:anAbundanceOfCats/business_logic/blocs/single_cat_display_bloc.dart';
 import 'package:anAbundanceOfCats/data/models/cats_model.dart';
+import 'package:anAbundanceOfCats/presentation/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../widgets/button_widgets/button_more_cats.dart';
@@ -13,12 +14,6 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
   double catRescale = 1.5;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +45,16 @@ class _ResultPageState extends State<ResultPage> {
       loaded: (loadedCats) => Image.network(
         loadedCats.url,
         scale: scaleCatImage(loadedCats),
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? loadingProgress){
+          if (loadingProgress == null) return child;
+          return Center(
+              child: CircularProgressIndicator(
+                color: Colors.lightGreenAccent,
+              value: loadingProgress.expectedTotalBytes != null ?
+              loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                  : null),);
+        }
       ),
       error: (message) => Text(message),
     );

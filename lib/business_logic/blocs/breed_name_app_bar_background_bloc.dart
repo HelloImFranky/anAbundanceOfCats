@@ -21,6 +21,7 @@ class BreedNameAppBarBackgroundBloc extends Bloc<BreedNameAppBarBackgroundEvent,
         ))) {
     on<DisplayBreedSingleCat>((event, emit) async {
       final cat = await CatRepository().fetchCat();
+      Future.delayed(const Duration(milliseconds: 500));
       emit(BreedNameAppBarBackgroundState.loaded(cat: cat));
     });
     on<DisplayBreedLoadWidget>((event, emit) {

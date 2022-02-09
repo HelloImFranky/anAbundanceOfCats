@@ -21,12 +21,6 @@ class _SliverGridBreedNameAppBar extends State<SliverGridBreedNameAppBar> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    BlocProvider.of<BreedNameAppBarBackgroundBloc>(context).close();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final state = context.watch<BreedNameAppBarBackgroundBloc>().state;
     return SliverAppBar(
@@ -47,7 +41,21 @@ class _SliverGridBreedNameAppBar extends State<SliverGridBreedNameAppBar> {
           ],
           background: state.when(
             loading: (_) => const Loading(loadingMessage: "Loading Cat"),
-            loaded: (loaded) => Image.network(loaded.url.toString()),
+            loaded: (loaded) => Image.network(
+              loaded.url.toString(),
+              loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent? loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Center(
+                  child: CircularProgressIndicator(
+                      color: Colors.lightGreenAccent,
+                      value: loadingProgress.expectedTotalBytes != null
+                          ? loadingProgress.cumulativeBytesLoaded /
+                              loadingProgress.expectedTotalBytes!
+                          : null),
+                );
+              },
+            ),
             error: (error) => Text(error),
           )),
     );

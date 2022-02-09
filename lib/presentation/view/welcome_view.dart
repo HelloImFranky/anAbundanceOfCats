@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/button_widgets/button_categories_frontpage.dart';
 import '../widgets/button_widgets/button_random_cat_frontpage.dart';
 import '../widgets/button_widgets/button_search_frontpage.dart';
 
@@ -9,15 +10,24 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Image Search Engine')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildRandomCatElevatedButton(),
-          const SizedBox(
-            height: 50,
-          ),
-          _buildSearchElevatedButton(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 250,
+            ),
+            _buildRandomCatElevatedButton(),
+            const SizedBox(
+              height: 50,
+            ),
+            _buildSearchElevatedButton(),
+            const SizedBox(
+              height: 50,
+            ),
+            _buildCategoriesElevatedButton(),
+          ],
+        ),
       ),
     );
   }
@@ -33,4 +43,12 @@ class WelcomePage extends StatelessWidget {
       child: SearchByBreedElevatedButton(),
     );
   }
+
+  Widget _buildCategoriesElevatedButton(){
+    return const Center(
+      child: SearchByCategoriesElevatedButton(),
+    );
+  }
+
+
 }

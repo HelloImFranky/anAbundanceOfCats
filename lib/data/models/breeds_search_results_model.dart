@@ -1,37 +1,22 @@
 import 'breeds_model.dart';
 
-class BreedSearchResultModel {
-  List<Breeds> breeds = <Breeds>[];
-  String? id;
-  String url="";
-  int? width;
-  int? height;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
+part 'breeds_search_results_model.freezed.dart';
+part 'breeds_search_results_model.g.dart';
 
-  BreedSearchResultModel(
-      {required this.breeds, this.id, required this.url, this.width, this.height});
+@freezed
+class BreedSearchResultModel with _$BreedSearchResultModel {
+  const BreedSearchResultModel._();
 
-  BreedSearchResultModel.fromJson(Map<String, dynamic> json) {
-    json['breeds'].forEach((v) {
-      breeds.add(Breeds.fromJson(v));
-    });
-    id = json['id'];
-    url = json['url'];
-    width = json['width'];
-    height = json['height'];
-  }
+  @JsonSerializable(explicitToJson: true)
+  const factory BreedSearchResultModel({
+    required List<Breeds> breeds,
+    required String? id,
+    required String url,
+    required int? width,
+    required int? height,
+  }) = _BreedSearchResultModel;
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['breeds'] = breeds.map((v) => v.toJson()).toList();
-    data['id'] = id;
-    data['url'] = url;
-    data['width'] = width;
-    data['height'] = height;
-    return data;
-  }
-
-  @override
-  String toString() {
-    return 'BreedSearchResultModel{breeds: $breeds, id: $id, url: $url, width: $width, height: $height}';
-  }
+  factory BreedSearchResultModel.fromJson(Map<String, dynamic> json) => _$BreedSearchResultModelFromJson(json);
 }

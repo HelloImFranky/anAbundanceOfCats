@@ -16,15 +16,19 @@ part 'single_cat_display_state.dart';
 
 class SingleCatDisplayBloc
     extends Bloc<SingleCatDisplayEvent, SingleCatDisplayState> {
-  SingleCatDisplayBloc() : super(const SingleCatDisplayState.loading(loadingWidget: Loading(loadingMessage: "Fetching Cat",))) {
+  final CatRepository _catRepository;
+
+  SingleCatDisplayBloc(this._catRepository) : super(const SingleCatDisplayState.loading(loadingWidget: Loading(loadingMessage: "Fetching Cat",),),) {
+
     on<DisplayLoadWidget>((event,emit){
       emit(const SingleCatDisplayState.loading(loadingWidget: Loading(loadingMessage: "Fetching Cat",)));
     });
     on<DisplaySingleCat>((event, emit) async {
       try {
-        final cat = await CatRepository().fetchCat();
+        final cat = await _catRepository.fetchCat();
         emit(SingleCatDisplayState.loaded(cat: cat));
-      } catch (e) {
+        }
+        catch(e){
         emit(SingleCatDisplayState.error(message: e.toString()));
       }
     });

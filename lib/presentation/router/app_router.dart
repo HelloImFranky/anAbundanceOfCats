@@ -1,46 +1,40 @@
 import 'package:anAbundanceOfCats/business_logic/blocs/breed_name_app_bar_background_bloc.dart';
-import 'package:anAbundanceOfCats/presentation/view/page_allbreeds_choice_page.dart';
+import 'package:anAbundanceOfCats/business_logic/blocs/breed_results_bloc.dart';
+import 'package:anAbundanceOfCats/presentation/view/page_breedslist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../business_logic/blocs/breed_name_list_bloc.dart';
 import '../../business_logic/blocs/single_cat_display_bloc.dart';
-import '../view/page_breed_choice_image_results_.dart';
-import '../view/page_onerandomcat_result.dart';
+import '../../business_logic/cat_categories_cubit.dart';
+import '../../data/repository/cat_repository.dart';
+import '../view/categories_view.dart';
 import '../view/welcome_view.dart';
 
 class AppRouter {
-  final SingleCatDisplayBloc _catBloc = SingleCatDisplayBloc();
-  final BreedNameListBloc _breedsNameListBloc = BreedNameListBloc();
-  final BreedNameAppBarBackgroundBloc _breedsNameListAppBarBloc =
-      BreedNameAppBarBackgroundBloc();
+  final SingleCatDisplayBloc _catBloc = SingleCatDisplayBloc(CatRepository());
+  final CatCategoriesCubit _categoriesCubit =
+      CatCategoriesCubit(CatRepository());
 
   Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (_) => const WelcomePage(),
-        );
-      case '/resultPage':
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: _catBloc..add(const SingleCatDisplayEvent.displayCat()),
-            child: const ResultPage(),
+          builder: (_) => MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (catContext) => _catBloc),
+          ],
+            child: const WelcomePage(),
           ),
         );
-      case '/breedNameSearchPage':
+      case '/categoriesPage':
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
-              BlocProvider(create: (breedContext) => _breedsNameListBloc),
-              BlocProvider(create: (catContext) => _breedsNameListAppBarBloc),
+              BlocProvider(create: (context) => _categoriesCubit),
             ],
-            child: const BreedNameSearchPage(),
+            child: const CategoriesPage(),
           ),
-        );
-      case '/breedResultPage':
-        return MaterialPageRoute(
-          builder: (_) => const BreedResultPage(),
         );
       default:
         return null;
