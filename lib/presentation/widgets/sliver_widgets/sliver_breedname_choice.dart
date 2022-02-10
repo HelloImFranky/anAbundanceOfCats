@@ -43,12 +43,11 @@ class _SliverGridBreedNameChoiceState extends State<SliverGridBreedNameChoice> {
                 style: ElevatedButton.styleFrom(primary: Colors.grey[500]),
                 onPressed: () {
                   String breedId = loaded.values.elementAt(index);
-                  BreedResultsBloc resultBloc =
-                      BreedResultsBloc(CatRepository(), breedId);
+                  final resultsBloc = BreedResultsBloc(CatRepository(), breedId);
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) => BlocProvider(
-                        create: (create) => resultBloc,
+                      builder: (_) => BlocProvider.value(
+                        value: resultsBloc,
                         child: const ShowBreedResults(),
                       ),
                     ),

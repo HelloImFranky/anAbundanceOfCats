@@ -24,11 +24,11 @@ class _$BreedSearchResultModelTearOff {
   const _$BreedSearchResultModelTearOff();
 
   _BreedSearchResultModel call(
-      {required List<Breeds> breeds,
-      required String? id,
+      {required List<BreedsFromSearchResultsModel> breeds,
+      required String id,
       required String url,
-      required int? width,
-      required int? height}) {
+      required int width,
+      required int height}) {
     return _BreedSearchResultModel(
       breeds: breeds,
       id: id,
@@ -48,11 +48,12 @@ const $BreedSearchResultModel = _$BreedSearchResultModelTearOff();
 
 /// @nodoc
 mixin _$BreedSearchResultModel {
-  List<Breeds> get breeds => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
+  List<BreedsFromSearchResultsModel> get breeds =>
+      throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  int? get width => throw _privateConstructorUsedError;
-  int? get height => throw _privateConstructorUsedError;
+  int get width => throw _privateConstructorUsedError;
+  int get height => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -66,7 +67,11 @@ abstract class $BreedSearchResultModelCopyWith<$Res> {
           $Res Function(BreedSearchResultModel) then) =
       _$BreedSearchResultModelCopyWithImpl<$Res>;
   $Res call(
-      {List<Breeds> breeds, String? id, String url, int? width, int? height});
+      {List<BreedsFromSearchResultsModel> breeds,
+      String id,
+      String url,
+      int width,
+      int height});
 }
 
 /// @nodoc
@@ -90,11 +95,11 @@ class _$BreedSearchResultModelCopyWithImpl<$Res>
       breeds: breeds == freezed
           ? _value.breeds
           : breeds // ignore: cast_nullable_to_non_nullable
-              as List<Breeds>,
+              as List<BreedsFromSearchResultsModel>,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -102,11 +107,11 @@ class _$BreedSearchResultModelCopyWithImpl<$Res>
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -119,7 +124,11 @@ abstract class _$BreedSearchResultModelCopyWith<$Res>
       __$BreedSearchResultModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<Breeds> breeds, String? id, String url, int? width, int? height});
+      {List<BreedsFromSearchResultsModel> breeds,
+      String id,
+      String url,
+      int width,
+      int height});
 }
 
 /// @nodoc
@@ -145,11 +154,11 @@ class __$BreedSearchResultModelCopyWithImpl<$Res>
       breeds: breeds == freezed
           ? _value.breeds
           : breeds // ignore: cast_nullable_to_non_nullable
-              as List<Breeds>,
+              as List<BreedsFromSearchResultsModel>,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -157,18 +166,17 @@ class __$BreedSearchResultModelCopyWithImpl<$Res>
       width: width == freezed
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
 
 /// @nodoc
-
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class _$_BreedSearchResultModel extends _BreedSearchResultModel {
   const _$_BreedSearchResultModel(
       {required this.breeds,
@@ -182,15 +190,15 @@ class _$_BreedSearchResultModel extends _BreedSearchResultModel {
       _$$_BreedSearchResultModelFromJson(json);
 
   @override
-  final List<Breeds> breeds;
+  final List<BreedsFromSearchResultsModel> breeds;
   @override
-  final String? id;
+  final String id;
   @override
   final String url;
   @override
-  final int? width;
+  final int width;
   @override
-  final int? height;
+  final int height;
 
   @override
   String toString() {
@@ -232,26 +240,26 @@ class _$_BreedSearchResultModel extends _BreedSearchResultModel {
 
 abstract class _BreedSearchResultModel extends BreedSearchResultModel {
   const factory _BreedSearchResultModel(
-      {required List<Breeds> breeds,
-      required String? id,
+      {required List<BreedsFromSearchResultsModel> breeds,
+      required String id,
       required String url,
-      required int? width,
-      required int? height}) = _$_BreedSearchResultModel;
+      required int width,
+      required int height}) = _$_BreedSearchResultModel;
   const _BreedSearchResultModel._() : super._();
 
   factory _BreedSearchResultModel.fromJson(Map<String, dynamic> json) =
       _$_BreedSearchResultModel.fromJson;
 
   @override
-  List<Breeds> get breeds;
+  List<BreedsFromSearchResultsModel> get breeds;
   @override
-  String? get id;
+  String get id;
   @override
   String get url;
   @override
-  int? get width;
+  int get width;
   @override
-  int? get height;
+  int get height;
   @override
   @JsonKey(ignore: true)
   _$BreedSearchResultModelCopyWith<_BreedSearchResultModel> get copyWith =>

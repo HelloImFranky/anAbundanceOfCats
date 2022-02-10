@@ -10,18 +10,19 @@ _$_BreedSearchResultModel _$$_BreedSearchResultModelFromJson(
         Map<String, dynamic> json) =>
     _$_BreedSearchResultModel(
       breeds: (json['breeds'] as List<dynamic>)
-          .map((e) => Breeds.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              BreedsFromSearchResultsModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      id: json['id'] as String?,
+      id: json['id'] as String,
       url: json['url'] as String,
-      width: json['width'] as int?,
-      height: json['height'] as int?,
+      width: json['width'] as int,
+      height: json['height'] as int,
     );
 
 Map<String, dynamic> _$$_BreedSearchResultModelToJson(
         _$_BreedSearchResultModel instance) =>
     <String, dynamic>{
-      'breeds': instance.breeds.map((e) => e.toJson()).toList(),
+      'breeds': instance.breeds,
       'id': instance.id,
       'url': instance.url,
       'width': instance.width,

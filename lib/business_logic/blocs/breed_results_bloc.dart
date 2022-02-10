@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:anAbundanceOfCats/data/models/breeds_from_search_results_model.dart';
 import 'package:anAbundanceOfCats/data/models/breeds_model.dart';
 import 'package:anAbundanceOfCats/data/repository/cat_repository.dart';
 import 'package:bloc/bloc.dart';
@@ -16,12 +17,14 @@ part 'breed_results_state.dart';
 class BreedResultsBloc extends Bloc<BreedResultsEvent, BreedResultsState> {
 
   final CatRepository _catRepository;
-  final String? _breedId;
+  final String _breedId;
+  String breedName = "";
 
   BreedResultsBloc(this._catRepository, this._breedId) : super(const BreedResultsState.loading(loadingWidget: Loading(loadingMessage: "Loading Results",),),) {
     on<BreedResultNames>((event, emit) async{
       try {
         final _breedSearchResults = await _catRepository.fetchSearchedBreeds(_breedId);
+        breedName = _breedSearchResults.first.breeds[0].name;
         emit(BreedResultsState.loaded(breeds: _breedSearchResults));
       }
       catch(e){

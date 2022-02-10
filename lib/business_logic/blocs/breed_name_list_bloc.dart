@@ -15,7 +15,6 @@ class BreedNameListBloc extends Bloc<BreedNameListEvent, BreedNameListState> {
   BreedNameListBloc() : super(const BreedNameListState.loading(loadingWidget: Loading(loadingMessage: "Loading Breeds"))) {
     final Map<String, String> _breedInfoList = <String,String>{};
     CatRepository catRepository = CatRepository();
-
     on<DisplayBreedNames>((event, emit) async {
       try {
         final breeds = await catRepository.fetchBreeds();

@@ -19,53 +19,52 @@ class _ShowBreedResultsState extends State<ShowBreedResults> {
 
   @override
   Widget build(BuildContext context) {
-
-    //TODO: find a way to replace Breed model with another model to give new breed description
     final state = context.watch<BreedResultsBloc>().state;
-    return Container();
-    //
-    //   Scaffold(
-    //   body: state.when(
-    //     loading: (loading) => loading,
-    //     error: (error) => Text(error),
-    //     loaded: (loaded) => Column(
-    //       children: [
-    //         Padding(
-    //           padding: const EdgeInsets.all(20.0),
-    //           child: Text(
-    //             loaded[0].breeds[0].description.toString(),
-    //             textAlign: TextAlign.center,
-    //             style: const TextStyle(fontSize: 20.0),
-    //           ),
-    //         ),
-    //         ElevatedButton(
-    //           onPressed: () async {
-    //             String url = loaded[0].breeds[0].wikipediaUrl.toString();
-    //             if (await canLaunch(url)) {
-    //               await launch(url);
-    //             } else {
-    //               throw 'Could not Launch $url';
-    //             }
-    //           },
-    //           child: const Text('More information'),
-    //         ),
-    //         Expanded(
-    //           child: ListView.builder(
-    //               itemCount: loaded.length,
-    //               itemBuilder: (BuildContext context, int index) {
-    //                 return Column(
-    //                   children: [
-    //                     const SizedBox(
-    //                       height: 20,
-    //                     ),
-    //                     Image.network(loaded[index].url.toString()),
-    //                   ],
-    //                 );
-    //               }),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(BlocProvider.of<BreedResultsBloc>(context).breedName),
+      ),
+      body: state.when(
+        loading: (loading) => loading,
+        error: (error) => Text("error message: " + error),
+        loaded: (loaded) => Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                loaded[0].breeds[0].description.toString(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 20.0),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                String url = loaded[0].breeds[0].wikipedia_url.toString();
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not Launch $url';
+                }
+              },
+              child: const Text('More information'),
+            ),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: loaded.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(
+                      children: [
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Image.network(loaded[index].url.toString()),
+                      ],
+                    );
+                  }),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
