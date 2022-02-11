@@ -9,7 +9,7 @@ class CatCategoriesModel with _$CatCategoriesModel {
   const CatCategoriesModel._();
 
   @JsonSerializable(explicitToJson: true)
-  const factory CatCategoriesModel({required String name}) =
+  const factory CatCategoriesModel({required String name, required int id}) =
       _CatCategoriesModel;
 
   factory CatCategoriesModel.fromJson(Map<String, dynamic> json) =>

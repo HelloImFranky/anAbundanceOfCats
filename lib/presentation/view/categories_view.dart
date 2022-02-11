@@ -1,4 +1,6 @@
+import 'package:anAbundanceOfCats/business_logic/cat_images_by_categories_cubit.dart';
 import 'package:anAbundanceOfCats/data/models/cat_categories_model.dart';
+import 'package:anAbundanceOfCats/data/models/cat_images_by_category.dart';
 import 'package:anAbundanceOfCats/presentation/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,18 +15,15 @@ class CategoriesPage extends StatefulWidget {
 }
 
 class _CategoriesPageState extends State<CategoriesPage> {
-  String selectedCategory = "boxes";
+  String selectedCategory = "1";
+  int catId = 1;
+  int limit = 3;
+  int page = 1;
 
   @override
   void initState() {
     super.initState();
     BlocProvider.of<CatCategoriesCubit>(context).getCategories();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    BlocProvider.of<CatCategoriesCubit>(context).close();
   }
 
   @override
@@ -40,6 +39,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
               const Text("Available Categories"),
               const SizedBox(height: 5),
               _buildDropDownButton(),
+              _buildDropDownResults(),
             ],
           ),
         ),
@@ -49,24 +49,43 @@ class _CategoriesPageState extends State<CategoriesPage> {
 
   Widget _buildDropDownButton() {
     final state = context.watch<CatCategoriesCubit>().state;
-    return DropdownButton(
-        hint: const Text("Click for Categories"),
-        value: selectedCategory,
-        onChanged: (category) {
-          setState(() {
-            selectedCategory = category.toString();
-          });
-        },
-        items: <DropdownMenuItem<String>>[
-          ...state.when(
-              loaded: (loaded) {
-                return loaded.map((category) => DropdownMenuItem(
-                    child: Text(category.name), value: category.name));
-              },
-              loading: (loading) => [
-                     DropdownMenuItem(
-                        child: loading, value: "loading"),
-                  ]),
-        ]);
+    return state.when(
+      loading: (loading) => loading,
+      loaded: (loaded) => DropdownButton(
+          hint: const Text("Click for Categories"),
+          value: selectedCategory,
+          onChanged: (category) {
+            setState(() {
+              selectedCategory = category.toString();
+              catId = _convertCategoryToId(selectedCategory);
+              BlocProvider.of<CatImagesByCategoriesCubit>(context)
+                  .getCatsByCategories(catId, limit, page);
+            });
+          },
+          items: <DropdownMenuItem<String>>[
+            ...loaded.map((cats) => DropdownMenuItem(
+                child: Text(cats.name), value: cats.id.toString())),
+          ]),
+    );
+  }
+
+   int _convertCategoryToId(String category) {
+    var tempCategoryList =
+        BlocProvider.of<CatCategoriesCubit>(context).categoriesList;
+    return tempCategoryList.firstWhere((element) => element.name == category).id;
+  }
+
+  Widget _buildDropDownResults() {
+    final catImagesState =
+        BlocProvider.of<CatImagesByCategoriesCubit>(context).state;
+    return catImagesState.when(
+      loading: (loading) => const Text(""),
+      loaded: (loaded) => Column(
+        children: [
+          const SizedBox(height: 30),
+          ...loaded.map((e) => Image.network(e.url)),
+        ],
+      ),
+    );
   }
 }

@@ -22,9 +22,10 @@ CatCategoriesModel _$CatCategoriesModelFromJson(Map<String, dynamic> json) {
 class _$CatCategoriesModelTearOff {
   const _$CatCategoriesModelTearOff();
 
-  _CatCategoriesModel call({required String name}) {
+  _CatCategoriesModel call({required String name, required int id}) {
     return _CatCategoriesModel(
       name: name,
+      id: id,
     );
   }
 
@@ -39,6 +40,7 @@ const $CatCategoriesModel = _$CatCategoriesModelTearOff();
 /// @nodoc
 mixin _$CatCategoriesModel {
   String get name => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +53,7 @@ abstract class $CatCategoriesModelCopyWith<$Res> {
   factory $CatCategoriesModelCopyWith(
           CatCategoriesModel value, $Res Function(CatCategoriesModel) then) =
       _$CatCategoriesModelCopyWithImpl<$Res>;
-  $Res call({String name});
+  $Res call({String name, int id});
 }
 
 /// @nodoc
@@ -66,12 +68,17 @@ class _$CatCategoriesModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -83,7 +90,7 @@ abstract class _$CatCategoriesModelCopyWith<$Res>
           _CatCategoriesModel value, $Res Function(_CatCategoriesModel) then) =
       __$CatCategoriesModelCopyWithImpl<$Res>;
   @override
-  $Res call({String name});
+  $Res call({String name, int id});
 }
 
 /// @nodoc
@@ -100,12 +107,17 @@ class __$CatCategoriesModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
+    Object? id = freezed,
   }) {
     return _then(_CatCategoriesModel(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -114,17 +126,20 @@ class __$CatCategoriesModelCopyWithImpl<$Res>
 
 @JsonSerializable(explicitToJson: true)
 class _$_CatCategoriesModel extends _CatCategoriesModel {
-  const _$_CatCategoriesModel({required this.name}) : super._();
+  const _$_CatCategoriesModel({required this.name, required this.id})
+      : super._();
 
   factory _$_CatCategoriesModel.fromJson(Map<String, dynamic> json) =>
       _$$_CatCategoriesModelFromJson(json);
 
   @override
   final String name;
+  @override
+  final int id;
 
   @override
   String toString() {
-    return 'CatCategoriesModel(name: $name)';
+    return 'CatCategoriesModel(name: $name, id: $id)';
   }
 
   @override
@@ -132,12 +147,15 @@ class _$_CatCategoriesModel extends _CatCategoriesModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CatCategoriesModel &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -151,7 +169,7 @@ class _$_CatCategoriesModel extends _CatCategoriesModel {
 }
 
 abstract class _CatCategoriesModel extends CatCategoriesModel {
-  const factory _CatCategoriesModel({required String name}) =
+  const factory _CatCategoriesModel({required String name, required int id}) =
       _$_CatCategoriesModel;
   const _CatCategoriesModel._() : super._();
 
@@ -160,6 +178,8 @@ abstract class _CatCategoriesModel extends CatCategoriesModel {
 
   @override
   String get name;
+  @override
+  int get id;
   @override
   @JsonKey(ignore: true)
   _$CatCategoriesModelCopyWith<_CatCategoriesModel> get copyWith =>

@@ -1,5 +1,6 @@
 import 'package:anAbundanceOfCats/business_logic/blocs/breed_name_app_bar_background_bloc.dart';
 import 'package:anAbundanceOfCats/business_logic/blocs/breed_results_bloc.dart';
+import 'package:anAbundanceOfCats/business_logic/cat_images_by_categories_cubit.dart';
 import 'package:anAbundanceOfCats/presentation/view/page_breedslist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ class AppRouter {
   final SingleCatDisplayBloc _catBloc = SingleCatDisplayBloc(CatRepository());
   final CatCategoriesCubit _categoriesCubit =
       CatCategoriesCubit(CatRepository());
+  final CatImagesByCategoriesCubit _catFromCategoriesImages = CatImagesByCategoriesCubit(CatRepository());
 
   Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -32,6 +34,7 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => _categoriesCubit),
+              BlocProvider(create: (context) => _catFromCategoriesImages),
             ],
             child: const CategoriesPage(),
           ),

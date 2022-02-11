@@ -1,4 +1,3 @@
-import 'package:anAbundanceOfCats/presentation/view/categories_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +15,6 @@ class SearchByCategoriesElevatedButton extends StatelessWidget {
         ),
         child: const Text('Search By Category'),
         onPressed: () {
-
           Navigator.pushNamed(context, '/categoriesPage');
         });
   }

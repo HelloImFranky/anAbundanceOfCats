@@ -38,7 +38,20 @@ class CatProvider {
     return response;
   }
 
+  /*
+  The parameterized futures below will fetch cat images by category
+   */
 
+  Future<List<dynamic>> fetchCatsByCategory(int categoryId,
+      [limit = 3, page = 1]) async {
+    final response = await _helper.get("/v1/images/search?limit=" +
+        limit.toString() +
+        "&category_ids=" +
+        categoryId.toString() +
+        "&page=" +
+        page.toString());
+    return response;
+  }
 
   /* TODO: Create new providers that will fetch cats in different ways the key is to
       provide the user with more features so they can find cats in any way they wish
