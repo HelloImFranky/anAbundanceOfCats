@@ -13,12 +13,12 @@ part 'cat_categories_cubit.freezed.dart';
 part 'cat_categories_state.dart';
 
 class CatCategoriesCubit extends Cubit<CatCategoriesState> {
-  List<CatCategoriesModel> categoriesList = [];
   CatCategoriesCubit(this._catRepository)
       : super(const CatCategoriesState.loading(
             loading: Loading(loadingMessage: "Loading Categories")));
 
   final CatRepository _catRepository;
+  List<CatCategoriesModel> categoriesList = [];
 
   void getCategories() async {
     categoriesList = await _catRepository.fetchCategories();

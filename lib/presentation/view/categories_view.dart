@@ -49,30 +49,35 @@ class _CategoriesPageState extends State<CategoriesPage> {
 
   Widget _buildDropDownButton() {
     final state = context.watch<CatCategoriesCubit>().state;
-    return state.when(
-      loading: (loading) => loading,
-      loaded: (loaded) => DropdownButton(
-          hint: const Text("Click for Categories"),
-          value: selectedCategory,
-          onChanged: (category) {
-            setState(() {
-              selectedCategory = category.toString();
-              catId = _convertCategoryToId(selectedCategory);
-              BlocProvider.of<CatImagesByCategoriesCubit>(context)
-                  .getCatsByCategories(catId, limit, page);
-            });
-          },
-          items: <DropdownMenuItem<String>>[
-            ...loaded.map((cats) => DropdownMenuItem(
-                child: Text(cats.name), value: cats.id.toString())),
-          ]),
+    return DropdownButton(
+      hint: const Text("Click for Categories"),
+      value: selectedCategory,
+      onChanged: (category) {
+        setState(() {
+          selectedCategory = category.toString();
+          catId = _convertCategoryToId(selectedCategory);
+          BlocProvider.of<CatImagesByCategoriesCubit>(context)
+              .getCatsByCategories(catId, limit, page);
+        });
+      },
+      items: state.when(
+          loading: (loading) => [
+                DropdownMenuItem(
+                    child: const Text("hats"), value: selectedCategory)
+              ],
+          loaded: (loaded) => <DropdownMenuItem<String>>[
+                ...loaded.map((cats) => DropdownMenuItem(
+                    child: Text(cats.name), value: cats.id.toString())),
+              ]),
     );
   }
 
-   int _convertCategoryToId(String category) {
-    var tempCategoryList =
-        BlocProvider.of<CatCategoriesCubit>(context).categoriesList;
-    return tempCategoryList.firstWhere((element) => element.name == category).id;
+  int _convertCategoryToId(String category) {
+    var categoriesFromCubit = BlocProvider.of<CatCategoriesCubit>(context)
+        .categoriesList
+        .firstWhere((element) => element.name.contains(category))
+        .id;
+    return categoriesFromCubit;
   }
 
   Widget _buildDropDownResults() {

@@ -14,9 +14,6 @@ import '../view/welcome_view.dart';
 
 class AppRouter {
   final SingleCatDisplayBloc _catBloc = SingleCatDisplayBloc(CatRepository());
-  final CatCategoriesCubit _categoriesCubit =
-      CatCategoriesCubit(CatRepository());
-  final CatImagesByCategoriesCubit _catFromCategoriesImages = CatImagesByCategoriesCubit(CatRepository());
 
   Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -27,16 +24,6 @@ class AppRouter {
             BlocProvider(create: (catContext) => _catBloc),
           ],
             child: const WelcomePage(),
-          ),
-        );
-      case '/categoriesPage':
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider(create: (context) => _categoriesCubit),
-              BlocProvider(create: (context) => _catFromCategoriesImages),
-            ],
-            child: const CategoriesPage(),
           ),
         );
       default:
