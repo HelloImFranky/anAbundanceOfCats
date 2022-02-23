@@ -2,8 +2,7 @@
 
 An IOS/Android app using an API from https://thecatsAPI.com showing a gallery of cats
 
-<img src= 'image_preview/Screenshot_1645629568.png' width='300'>
-<img src= 'image_preview/Screenshot_1645629631.png' width='300'>
+<img src= 'image_preview/Screenshot_1645629568.png' width='300'> <img src= 'image_preview/Screenshot_1645629631.png' width='300'>
 <img src= 'image_preview/Screenshot_1645629644.png' width='300'>
 <img src= 'image_preview/Screenshot_1645629661.png' width='300'>
 <img src= 'image_preview/Screenshot_1645629676.png' width='300'>
