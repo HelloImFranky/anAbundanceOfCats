@@ -2,7 +2,7 @@
 
 An IOS/Android app using an API from https://thecatsAPI.com showing a gallery of cats
 
-![AppImage1](image_preview/Screenshot_1645629568.png | width = 100) 
+![AppImage1](image_preview/Screenshot_1645629568.png | width=100) 
 
 ## Getting Started
 
