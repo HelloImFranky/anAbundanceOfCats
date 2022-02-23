@@ -2,7 +2,9 @@
 
 An IOS/Android app using an API from https://thecatsAPI.com showing a gallery of cats
 
-[[image_preview/Screenshot_1645629568.png|width=200px]]
+<img src= 'image_preview/Screenshot_1645629568.png' width='100'>
+
+[[|width=200px]]
 
 ## Getting Started
 
