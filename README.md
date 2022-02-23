@@ -2,6 +2,8 @@
 
 An IOS/Android app using an API from https://thecatsAPI.com showing a gallery of cats
 
+![image1](image_preview/Screenshot_1645629568.png)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
